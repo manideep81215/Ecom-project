@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Home from "./components/Home";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavBar";
 import Cart from "./components/Cart";
 import AddProduct from "./components/AddProduct";
 import Product from "./components/Product";
