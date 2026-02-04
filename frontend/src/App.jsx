@@ -13,7 +13,7 @@ import Auth from "./components/Auth";
 import Account from "./components/Account";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AppProvider } from "./Context/Context";
+import { AppProvider } from "./context/Context";
 import UpdateProduct from "./components/UpdateProduct";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
