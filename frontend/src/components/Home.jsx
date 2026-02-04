@@ -142,7 +142,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-import AppContext from "../Context/Context";
+import AppContext from "../context/Context";
 import unplugged from "../assets/unplugged.png";
 import "./Home.css";
 
