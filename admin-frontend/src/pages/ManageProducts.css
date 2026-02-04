@@ -1,0 +1,17 @@
+.availability {
+    margin-top: 12px;
+    padding: 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.available {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.out {
+    background-color: #e74c3c;
+    color: white;
+}

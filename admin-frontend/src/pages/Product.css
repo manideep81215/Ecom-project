@@ -1,0 +1,224 @@
+/* =========================
+   PRODUCT PAGE CONTAINER
+========================= */
+.containers {
+    display: flex;
+    gap: 3rem;
+    padding: 3rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #cfcfcf; /* lighter grey like screenshot */
+    min-height: 100vh;
+    align-items: flex-start;
+}
+
+/* =========================
+   LEFT IMAGE
+========================= */
+.left-column-img {
+    margin-top: 5rem;
+    width: 48%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: none; /* screenshot is flat */
+}
+
+/* =========================
+   RIGHT COLUMN
+========================= */
+.right-column {
+    width: 52%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+/* =========================
+   PRODUCT HEADER
+========================= */
+.product-description {
+    display: flex;
+    flex-direction: column;
+}
+
+/* CATEGORY + DATE ROW */
+.product-description > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.product-description > div:first-child span {
+    color: #2a7fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.product-description > div:first-child h6 {
+    font-size: 0.95rem;
+    color: #222;
+    font-weight: 500;
+}
+
+/* =========================
+   PRODUCT TITLE
+========================= */
+.product-description h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin: 0;
+    text-transform: lowercase;
+    color: #000;
+}
+
+/* BRAND */
+.product-description i {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 0.5rem 0 1.2rem;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+.product-description p:first-of-type {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.product-description p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #222;
+    max-width: 90%;
+}
+
+/* DIVIDER */
+.product-description::after {
+    content: "";
+    margin-top: 1.8rem;
+    width: 100%;
+    height: 1px;
+    background-color: #b0b0b0;
+}
+
+/* =========================
+   PRICE + STOCK
+========================= */
+.product-price {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.product-price span {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.product-price h6 {
+    font-size: 1rem;
+    color: #000;
+}
+
+.product-price h6 i {
+    color: #1db954; /* green stock number */
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.product-price .btn {
+    margin-top: 1rem;
+    width: 180px;
+}
+
+/* UPDATE / DELETE */
+.update-button {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+/* =========================
+   BUTTON STYLES
+========================= */
+.btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-primary {
+    background-color: #1677ff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0f5fd1;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c53030;
+}
+
+/* =========================
+   LOADING
+========================= */
+.text-center {
+    text-align: center;
+    color: #555;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 968px) {
+    .containers {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .left-column-img,
+    .right-column {
+        width: 100%;
+    }
+
+    .left-column-img {
+
+        height: 300px;
+    }
+
+    .product-description h1 {
+        font-size: 2.2rem;
+    }
+
+    .product-price span {
+        font-size: 2rem;
+    }
+
+    .update-button {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
