@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./AdminUserDetails.css";
 
@@ -19,8 +19,8 @@ const AdminUserDetails = () => {
     /* ================= LOAD USER ================= */
     const loadUserProfile = async () => {
         try {
-            const res = await axios.get(
-                `http://localhost:8080/api/admin/user/${id}`
+            const res = await api.get(
+                `/api/admin/user/${id}`
             );
             setUser(res.data);
             setPhotoAvailable(true); // reset when user changes
@@ -32,8 +32,8 @@ const AdminUserDetails = () => {
     /* ================= LOAD ORDERS ================= */
     const loadUserOrders = async () => {
         try {
-            const res = await axios.get(
-                `http://localhost:8080/api/admin/user/${id}/orders`
+            const res = await api.get(
+                `/api/admin/user/${id}/orders`
             );
             setOrders(res.data || []);
         } finally {
@@ -68,7 +68,7 @@ const AdminUserDetails = () => {
                 <div className="profile-image-wrapper">
                     {photoAvailable ? (
                         <img
-                            src={`http://localhost:8080/api/auth/user/${user.id}/photo`}
+                            src={`${import.meta.env.VITE_API_URL}/api/auth/user/${user.id}/photo`}
                             alt="Profile"
                             className="profile-image"
                             onError={() => setPhotoAvailable(false)}

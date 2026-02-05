@@ -15,8 +15,8 @@ const ManageOrders = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch(
-          "http://localhost:8080/api/auth/user/orders"
+      const response = await api(
+          "/api/auth/user/orders"
       );
 
       if (!response.ok) {

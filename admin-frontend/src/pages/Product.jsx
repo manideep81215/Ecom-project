@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { toast } from "react-toastify";
 import "./Product.css"; // reuse SAME CSS
 
@@ -14,8 +14,8 @@ const AdminProduct = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(
-                    `http://localhost:8080/api/product/${id}`
+                const response = await api.get(
+                    `/api/product/${id}`
                 );
                 setProduct(response.data);
             } catch (error) {
@@ -30,7 +30,7 @@ const AdminProduct = () => {
     /* ---------------- DELETE PRODUCT ---------------- */
     const deleteProduct = async () => {
         try {
-            await axios.delete(`http://localhost:8080/api/product/${id}`);
+            await api.delete(`/api/product/${id}`);
             toast.success("Product deleted successfully 🗑️");
 
             navigate("/manage-products"); // ✅ FIXED
@@ -58,7 +58,7 @@ const AdminProduct = () => {
             {/* IMAGE */}
             <img
                 className="left-column-img"
-                src={`http://localhost:8080/api/product/${id}/image`}
+                src={`${import.meta.env.VITE_API_URL}/api/product/${id}/image`}
                 alt={product.name}
                 style={{ width: "50%", height: "auto" }}
             />

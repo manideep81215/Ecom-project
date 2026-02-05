@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import "../pages/AddProduct.css"; // ✅ reuse SAME CSS
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -41,8 +41,8 @@ const AdminAddProduct = () => {
             })
         );
 
-        axios
-            .post("http://localhost:8080/api/product", formData, {
+        api
+            .post("/api/product", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },

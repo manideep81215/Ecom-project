@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
 const ManageProducts = () => {
@@ -11,13 +11,13 @@ const ManageProducts = () => {
     }, []);
 
     const loadProducts = async () => {
-        const res = await axios.get("http://localhost:8080/api/products");
+        const res = await api.get("/api/products");
 
         const withImages = await Promise.all(
             res.data.map(async (product) => {
                 try {
-                    const imgRes = await axios.get(
-                        `http://localhost:8080/api/product/${product.id}/image`,
+                    const imgRes = await api.get(
+                        `${import.meta.env.VITE_API_URL}/api/product/${product.id}/image`,
                         { responseType: "blob" }
                     );
                     return {

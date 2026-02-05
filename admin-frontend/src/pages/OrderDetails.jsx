@@ -40,8 +40,8 @@ const OrderDetails = () => {
       setLoading(true);
       setError("");
 
-      const response = await fetch(
-          `http://localhost:8080/api/admin/orders/${orderId}`,
+      const response = await api(
+          `/api/admin/orders/${orderId}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -67,8 +67,8 @@ const OrderDetails = () => {
     try {
       setUpdating(true);
 
-      const response = await fetch(
-          `http://localhost:8080/api/admin/orders/${order.id}`,
+      const response = await api(
+          `/api/admin/orders/${order.id}`,
           {
             method: "PUT",
             headers: {
@@ -99,8 +99,8 @@ const OrderDetails = () => {
       setError("");
       setSuccess("");
 
-      const response = await fetch(
-          `http://localhost:8080/api/auth/user/${order.userId}/orders/${orderId}/cancel`,
+      const response = await api(
+          `/api/auth/user/${order.userId}/orders/${orderId}/cancel`,
           { method: "PUT" }
       );
 

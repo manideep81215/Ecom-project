@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../api/axios";
 import { toast } from "react-toastify";
 import "./UpdateProduct.css";
 
@@ -27,14 +27,13 @@ const UpdateProduct = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await axios.get(
-                    `http://localhost:8080/api/product/${id}`
+                const res = await api.get(
+                    `/api/product/${id}`
                 );
 
                 setUpdateProduct(res.data);
 
-                setImagePreview(
-                    `http://localhost:8080/api/product/${id}/image`
+                setImagePreview(`${import.meta.env.VITE_API_URL}/api/product/${id}/image`
                 );
             } catch {
                 toast.error("Failed to load product ❌");
@@ -79,8 +78,8 @@ const UpdateProduct = () => {
                 })
             );
 
-            await axios.put(
-                `http://localhost:8080/api/product/${id}`,
+            await api.put(
+                `/api/product/${id}`,
                 formData,
                 { headers: { "Content-Type": "multipart/form-data" } }
             );

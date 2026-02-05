@@ -23,7 +23,7 @@ const UserCard = ({ user, navigate }) => {
             {/* PROFILE PHOTO OR INITIAL */}
             {!imageError ? (
                 <img
-                    src={`http://localhost:8080/api/admin/user/${user.id}/photo`}
+                    src={`${import.meta.env.VITE_API_URL}/api/admin/user/${user.id}/photo`}
                     alt="profile"
                     onError={() => setImageError(true)}
                     style={{
@@ -102,7 +102,7 @@ const ManageUsers = () => {
 
     const loadUsers = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/api/admin/users");
+            const res = await api.get("http://localhost:8080/api/admin/users");
             setUsers(res.data);
         } catch (error) {
             console.error("Failed to load users", error);
